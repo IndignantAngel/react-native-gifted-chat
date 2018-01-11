@@ -118,12 +118,21 @@ export default class Bubble extends React.Component {
     }
   }
 
+  onPress = () => {
+    if (this.props.onPressBubble) {
+      this.props.onPressBubble(this.context, this.props.currentMessage);
+    } 
+    // TODO ... else
+  }
+
   render() {
     return (
       <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
         <View style={[styles[this.props.position].wrapper, this.props.wrapperStyle[this.props.position], this.handleBubbleToNext(), this.handleBubbleToPrevious()]}>
           <TouchableWithoutFeedback
+            onPress={this.onPress}
             onLongPress={this.onLongPress}
+            delayLongPress={1000}
             accessibilityTraits="text"
             {...this.props.touchableProps}
           >
