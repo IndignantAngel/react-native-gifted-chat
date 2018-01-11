@@ -49,6 +49,13 @@ export default class Bubble extends React.Component {
     }
   }
 
+  onPress = () => {
+    if (this.props.onPressBubble) {
+      this.props.onPressBubble(this.context, this.props.currentMessage);
+    } 
+    // TODO ... else
+  }
+
   handleBubbleToNext() {
     if (
       isSameUser(this.props.currentMessage, this.props.nextMessage) &&
@@ -151,7 +158,9 @@ export default class Bubble extends React.Component {
           ]}
         >
           <TouchableWithoutFeedback
+            onPress={this.onPress}
             onLongPress={this.onLongPress}
+            delayLongPress={1000}
             accessibilityTraits="text"
             {...this.props.touchableProps}
           >
