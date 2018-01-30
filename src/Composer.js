@@ -4,6 +4,7 @@ import {
   Platform,
   StyleSheet,
   TextInput,
+  Keyboard,
 } from 'react-native';
 
 export default class Composer extends React.Component {
@@ -23,9 +24,18 @@ export default class Composer extends React.Component {
     this.props.onTextChanged(text);
   }
 
+  focus(isFocus) {
+    if(isFocus) {
+      this.refs.input.focus();
+    }
+    else 
+      Keyboard.dismiss();
+  }
+
   render() {
     return (
       <TextInput
+        ref='input'
         placeholder={this.props.placeholder}
         placeholderTextColor={this.props.placeholderTextColor}
         multiline={this.props.multiline}
