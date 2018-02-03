@@ -132,7 +132,7 @@ export default class Bubble extends React.Component {
           <TouchableWithoutFeedback
             onPress={this.onPress}
             onLongPress={this.onLongPress}
-            delayLongPress={1000}
+            delayLongPress={600}
             accessibilityTraits="text"
             {...this.props.touchableProps}
           >
@@ -157,6 +157,7 @@ const styles = {
     container: {
       flex: 1,
       alignItems: 'flex-start',
+      backgroundColor: 'red',
     },
     wrapper: {
       borderRadius: 15,
@@ -176,6 +177,7 @@ const styles = {
     container: {
       flex: 1,
       alignItems: 'flex-end',
+      backgroundColor: 'blue',
     },
     wrapper: {
       borderRadius: 15,
